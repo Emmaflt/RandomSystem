@@ -8,49 +8,71 @@ import {Collegue} from '../models/list.model';
 })
 export class ListColleguesComponent implements OnInit {
 
-
   collegues: Collegue[];
   selectedCollegue!: Collegue;
+
   selectNext(max : number) {
     return Math.floor(Math.random() * max);
-    //0.1 x 3 =0.3 =0   0.9x3=2.7=2   0.4x3=1.2=1
   }
+
+  isPresent (element : Collegue) {
+    return element.present;
+  }
+
+  // isHere = this.collegues.isHere.filter(isHere = true);
 
   constructor() {
     this.collegues = [{
         id: 1,
         name: 'Emma',
-        isHere: true
+        present: true
       },
       {
         id: 2,
         name: 'Lea',
-        isHere: true
+        present: true
       },
       {
         id: 3,
         name: 'Etienne',
-        isHere: true
+        present: true
       },
       {
         id: 4,
         name: 'Paul',
-        isHere: false
+        present: false
       },
       {
         id: 5,
         name: 'Jilianne',
-        isHere: false
+        present: false
+      },
+      {
+        id: 6,
+        name: 'Michael',
+        present: false
+      },
+      {
+        id: 7,
+        name: 'Harald',
+        present: false
+      },
+      {
+        id: 5,
+        name: 'Jilianne',
+        present: false
       }
     ]
   }
 
   ngOnInit(): void {
-
   }
 
   onSelect() {
-    this.selectedCollegue = this.collegues[this.selectNext(5)];
+    this.selectedCollegue = this.collegues.filter(this.isPresent)[this.selectNext(this.collegues.length)];
   }
+
+
+
 
 }
