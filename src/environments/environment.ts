@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mongodb: {
+    DB_CONN_STRING: "mongodb+srv://localhost:27017",
+    DB_NAME: "RANDOMSYSTEM",
+    RANDOMSYSTEM_COLLECTION_NAME: "collegue"
+  }
 };
 
 /*
