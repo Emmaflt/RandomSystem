@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand">Angular 13 CRUD Operations Demo</a>
 
@@ -19,11 +18,16 @@
 
   <h1 class="display-5 fw-bold">Collegue :</h1>
   <ul>
-    <div class="lead mb-4" >
+    <div class="lead mb-4" *ngIf="selectedCollegue">
+      <img class="col-lg-1 col-sm-2 rounded-circle" [src]="getImageDir(selectedCollegue)" alt="image"/>
+      <br>
       {{selectedCollegue?.name}}
+      {{selectedCollegue?.present}}
 
     </div>
-    <button class="btn btn-primary align-items-center" type="button" (click)="onSelect()"> Cliquez ici pour tirer au sort</button>
+    <button class="btn btn-primary align-items-center" type="button" (click)="onSelect()"> Cliquez ici pour tirer au
+      sort
+    </button>
   </ul>
 
 </div>
